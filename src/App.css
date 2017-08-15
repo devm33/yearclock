@@ -1,5 +1,5 @@
 .App {
-  background: url('/fourseasons.jpg') center/contain no-repeat;
+  background: url('fourseasons.jpg') center/contain no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
