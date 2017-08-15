@@ -17,7 +17,6 @@ export default class App extends Component {
     let start = new Date(d.getFullYear(), 0, 0, 0, 0, 0);
     let end =  new Date(d.getFullYear() + 1, 0, 0, 0, 0, 0);
     let p = (d - start) / (end - start);
-    console.log(p);
     let deg = 360 * p - 180; // substracting 180 since the arm rests at june
     let armStyle = {
       transform: 'rotate(' + deg + 'deg)'
