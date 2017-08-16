@@ -42,7 +42,7 @@
 .month {
   color: white;
   -webkit-text-stroke: 1px black;
-  font-size: 1.1em;
+  font-size: 12pt;
   font-weight: 900;
   text-transform: uppercase;
   position: absolute;
