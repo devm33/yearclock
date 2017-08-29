@@ -1,5 +1,4 @@
 .App {
-  background: url('fourseasons.jpg') center/contain no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,7 +34,7 @@
   height: 0;
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
-  border-top: 50vmin solid white;
+  border-top: 45vmin solid white;
   transform-origin: top center;
 }
 
