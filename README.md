@@ -1,6 +1,6 @@
 # yearclock
 
-![https://travis-ci.org/devm33/yearclock.svg?branch=master]
+![travis build](https://travis-ci.org/devm33/yearclock.svg?branch=master)
 
 You can see a live demo here: <https://devm33.github.io/yearclock/>
 
