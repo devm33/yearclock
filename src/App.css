@@ -49,38 +49,38 @@
   top: 50%;
 }
 .January {
-  transform: translateY(-48vmin);
+  transform: translateY(-40vmin) rotate(-90deg);
 }
 .February {
-  transform: rotate(30deg) translateY(-48vmin);
+  transform: rotate(30deg) translateY(-40vmin) rotate(-90deg);
 }
 .March {
-  transform: rotate(60deg) translateY(-48vmin);
+  transform: rotate(60deg) translateY(-40vmin) rotate(-90deg);
 }
 .April {
-  transform: rotate(90deg) translateY(-48vmin);
+  transform: rotate(90deg) translateY(-40vmin) rotate(-90deg);
 }
 .May {
-  transform: rotate(120deg) translateY(-47vmin) rotate(180deg);
+  transform: rotate(120deg) translateY(-40vmin) rotate(-90deg);
 }
 .June {
-  transform: rotate(150deg) translateY(-46vmin) rotate(180deg);
+  transform: rotate(150deg) translateY(-40vmin) rotate(-90deg);
 }
 .July {
-  transform: rotate(180deg) translateY(-46vmin) rotate(180deg);
+  transform: rotate(180deg) translateY(-40vmin) rotate(90deg);
 }
 .August {
-  transform: rotate(210deg) translateY(-46vmin) rotate(180deg);
+  transform: rotate(210deg) translateY(-40vmin) rotate(90deg);
 }
 .September {
-  transform: rotate(240deg) translateY(-47vmin) rotate(180deg);
+  transform: rotate(240deg) translateY(-40vmin) rotate(90deg);
 }
 .October {
-  transform: rotate(270deg) translateY(-47vmin);
+  transform: rotate(270deg) translateY(-40vmin) rotate(90deg);
 }
 .November {
-  transform: rotate(300deg) translateY(-48vmin);
+  transform: rotate(300deg) translateY(-40vmin) rotate(90deg);
 }
 .December {
-  transform: rotate(330deg) translateY(-48vmin);
+  transform: rotate(330deg) translateY(-40vmin) rotate(90deg);
 }
