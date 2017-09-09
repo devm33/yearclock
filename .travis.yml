@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+  - 7
+branches:
+  only: master
+env:
+  - EXTENSION_ID=pllgmedcgbbidcoemgooimddcojgfkdl
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: npm run release
+  on:
+      branch: master
