@@ -1,13 +1,18 @@
 language: node_js
 node_js:
-  - 7
+- 7
 branches:
   only: master
 env:
-  - EXTENSION_ID=pllgmedcgbbidcoemgooimddcojgfkdl
+  global:
+    - EXTENSION_ID=pllgmedcgbbidcoemgooimddcojgfkdl
+    - SOURCE_DIR="build"
 deploy:
   provider: script
   skip_cleanup: true
   script: npm run release
   on:
-      branch: master
+    branch: master
+before_install:
+- openssl aes-256-cbc -K $encrypted_bc8f8a53b0ae_key -iv $encrypted_bc8f8a53b0ae_iv
+  -in id_rsa.enc -out id_rsa -d
