@@ -17,70 +17,48 @@
   position: absolute;
   top: 50%;
   right: 50%;
-  margin-right: -15px;
-  margin-top: -15px;
-  background-color: white;
-  width: 30px;
-  height: 30px;
+  margin-right: -10px;
+  background-color: #555;
+  width: 20px;
+  height: 20px;
   border-radius: 50% 50%;
 }
 
 .arm {
   position: absolute;
-  top: 50%;
+  bottom: 50%;
   right: 50%;
-  margin-right: -15px;
+  margin-right: -7px;
+  margin-bottom: -7px;
   width: 0;
   height: 0;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
-  border-top: 45vmin solid white;
-  transform-origin: top center;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 50vmin solid #555;
+  transform-origin: bottom center;
+  z-index: 0;
 }
 
-.month {
-  color: white;
-  -webkit-text-stroke: 1px black;
-  font-size: 12pt;
-  font-weight: 900;
+.day, .month {
+  z-index: 10;
+  font-weight: lighter;
   text-transform: uppercase;
   position: absolute;
   width: 100%;
   top: 50%;
+  border: 1px solid rgba(255,255,255,0.1);
+  vertical-align: middle;
 }
-.January {
-  transform: translateY(-40vmin) rotate(-90deg);
+.month {
+  color: #aaa;
+  font-size: 12pt;
+  line-height: 12pt;
 }
-.February {
-  transform: rotate(30deg) translateY(-40vmin) rotate(-90deg);
+.day {
+  color: #777;
+  font-size: 8pt;
+  line-height: 8pt;
 }
-.March {
-  transform: rotate(60deg) translateY(-40vmin) rotate(-90deg);
-}
-.April {
-  transform: rotate(90deg) translateY(-40vmin) rotate(-90deg);
-}
-.May {
-  transform: rotate(120deg) translateY(-40vmin) rotate(-90deg);
-}
-.June {
-  transform: rotate(150deg) translateY(-40vmin) rotate(-90deg);
-}
-.July {
-  transform: rotate(180deg) translateY(-40vmin) rotate(90deg);
-}
-.August {
-  transform: rotate(210deg) translateY(-40vmin) rotate(90deg);
-}
-.September {
-  transform: rotate(240deg) translateY(-40vmin) rotate(90deg);
-}
-.October {
-  transform: rotate(270deg) translateY(-40vmin) rotate(90deg);
-}
-.November {
-  transform: rotate(300deg) translateY(-40vmin) rotate(90deg);
-}
-.December {
-  transform: rotate(330deg) translateY(-40vmin) rotate(90deg);
+.current {
+  color: #fff;
 }

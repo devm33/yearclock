@@ -6,13 +6,52 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {rotation: 0};
-    const months = ['January', 'February', 'March', 'April', 'May', 'June',
-      'July', 'August', 'September', 'October', 'November', 'December'];
+    var months = [
+      {name: 'January',  days: 31},
+      {name: 'February', days: 28}, 
+      {name: 'March',    days: 31},
+      {name: 'April',    days: 30},
+      {name: 'May',      days: 31},
+      {name: 'June',     days: 30},
+      {name: 'July',     days: 31},
+      {name: 'August',   days: 31},
+      {name: 'September',days: 30},
+      {name: 'October',  days: 31},
+      {name: 'November', days: 30},
+      {name: 'December', days: 31}
+    ];
+
+    const now = new Date();
+
+    // TODO encorporate this into tick fn
+    // check for leap year https://stackoverflow.com/a/11595914
+    const year = now.getFullYear();
+    if(year & 3 === 0 && (year % 25 !== 0 || year & 15 === 0)) {
+      months[1].days = 29;
+    }
+
+    // highlight the current day of month
+    const month = now.getMonth();
+    const day = now.getDate() - 1;
+
+    this.daysDivs = [];
     this.monthsDivs = [];
-    for (let i = 0; i < months.length; i++) {
-      let m = months[i];
-      let classes = "month " + m;
-      this.monthsDivs.push(<div key={m} className={classes}>{m}</div>);
+    for(let i = 0; i < months.length; i++) {
+      let dist = 'translateY(-40vmin)';
+      let facing = `rotate(${i < 6 ? '-' : ''}90deg)`;
+      let m = months[i].name;
+      let s = {transform: `rotate(${i * 30}deg) ${dist} ${facing}`};
+      let c = `month ${i === month && 'current'}`;
+      this.monthsDivs.push(<div key={m} className={c} style={s}>{m}</div>);
+      for(let d = 0; d < months[i].days; d++) {
+        let r = i * 30 + ((d + 0.5) / months[i].days) * 30;
+        let dist = `translateY(-${5 + d * 1.5}vmin)`;
+        let s = {transform: `rotate(${r}deg) ${dist} ${facing}`};
+        let c = `day ${(i === month && d === day) && 'current'}`;
+        this.daysDivs.push((
+          <div key={`${m}${d}`} className={c} style={s}>{d+1}</div>
+        ));
+      }
     }
   }
 
@@ -21,9 +60,8 @@ export default class App extends Component {
     let start = new Date(d.getFullYear(), 0, 0, 0, 0, 0);
     let end =  new Date(d.getFullYear() + 1, 0, 0, 0, 0, 0);
     let p = (d - start) / (end - start);
-    let deg = 360 * p - 180; // substracting 180 since the arm defaults to june
     this.setState({
-      rotation: deg
+      rotation: p * 360 // convert to deg
     });
   }
 
@@ -43,9 +81,14 @@ export default class App extends Component {
     return (
       <div className="App">
         <div className="clock">
-          {this.monthsDivs}
+          <div className="months">
+            {this.monthsDivs}
+          </div>
+          <div className="days">
+            {this.daysDivs}
+          </div>
           <div className="arm"
-               style={{transform: 'rotate(' + this.state.rotation + 'deg)'}}>
+               style={{transform: `rotate(${this.state.rotation}deg)`}}>
           </div>
           <div className="dot"></div>
         </div>
