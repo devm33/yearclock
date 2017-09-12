@@ -24,6 +24,16 @@
   border-radius: 50% 50%;
 }
 
+.arm, .day, .month {
+  animation: transform-animate 1.5s;
+}
+
+@keyframes transform-animate {
+  from {
+    transform: rotate(0deg);
+  }
+}
+
 .arm {
   position: absolute;
   bottom: 50%;
