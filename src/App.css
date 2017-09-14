@@ -24,8 +24,11 @@
   border-radius: 50% 50%;
 }
 
-.arm, .day, .month {
+.day, .month {
   animation: transform-animate 1.5s;
+}
+.arm {
+  animation: transform-animate 2.5s;
 }
 
 @keyframes transform-animate {
