@@ -5,7 +5,7 @@ import './App.css';
 export default class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {rotation: 0};
+    this.state = {rotation: 0, light: false};
     var months = [
       {name: 'January',  days: 31},
       {name: 'February', days: 28}, 
@@ -71,15 +71,40 @@ export default class App extends Component {
       () => this.tick(),
       60 * 60 * 1000
     );
+
+    // set light if query param
+    var p = new URLSearchParams(window.location.search);
+    if(p.has('light')) {
+      this.setState({light: true});
+    }
+
+    // load light or dark state if in chrome extension
+    if(window.chrome && window.chrome.storage) {
+      window.chrome.storage.local.get(['light'], r => {
+        this.setState({light: r.light});
+      });
+    }
   }
 
   componentWillUnmount() {
     clearInterval(this.timerID);
   }
 
+  toggleColor() {
+    this.setState({light: !this.state.light});
+    // store setting in chrome extension
+    if(window.chrome && window.chrome.storage) {
+      window.chrome.storage.local.set({light: !this.state.light});
+    }
+  }
+
   render() {
+    let cls = 'App';
+    if (this.state.light) {
+      cls += ' light';
+    }
     return (
-      <div className="App">
+      <div className={cls}>
         <div className="clock">
           <div className="months">
             {this.monthsDivs}
@@ -90,7 +115,7 @@ export default class App extends Component {
           <div className="arm"
                style={{transform: `rotate(${this.state.rotation}deg)`}}>
           </div>
-          <div className="dot"></div>
+          <div className="dot" onClick={() => this.toggleColor()}></div>
         </div>
       </div>
     );

@@ -4,6 +4,7 @@
   justify-content: center;
   height: 100vh;
   width: 100vw;
+  background-color: black;
 }
 
 .clock {
@@ -74,4 +75,27 @@
 }
 .current {
   color: #fff;
+}
+
+/* click through these elements */
+.arm, .day, .month {
+  pointer-events: none;
+}
+
+/* invert colors on light mode */
+.App.light {
+  background-color: white;
+}
+.light .dot {
+  background-color: #ccc;
+}
+.light .arm {
+  border-bottom-color: #ddd;
+}
+.light .day, .light .month {
+  color: #aaa;
+  border-color: rgba(0, 0, 0, 0.05);
+}
+.light .current {
+  color: #000;
 }
