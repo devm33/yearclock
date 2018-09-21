@@ -73,8 +73,7 @@ export default class App extends Component {
     );
 
     // set light if query param
-    var p = new URLSearchParams(window.location.search);
-    if(p.has('light')) {
+    if(window.location.search.includes('light')) {
       this.setState({light: true});
     }
 
