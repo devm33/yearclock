@@ -5,7 +5,7 @@ import './App.css';
 export default class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {rotation: 0, light: false};
+    this.state = {rotation: 0, light: false, loaded: false};
     var months = [
       {name: 'January',  days: 31},
       {name: 'February', days: 28}, 
@@ -80,8 +80,10 @@ export default class App extends Component {
     // load light or dark state if in chrome extension
     if(window.chrome && window.chrome.storage) {
       window.chrome.storage.local.get(['light'], r => {
-        this.setState({light: r.light});
+        this.setState({light: r.light, loaded: true});
       });
+    } else {
+      this.setState({loaded: true});
     }
   }
 
@@ -98,6 +100,9 @@ export default class App extends Component {
   }
 
   render() {
+    if(!this.state.loaded) {
+      return <div></div>;
+    }
     let cls = 'App';
     if (this.state.light) {
       cls += ' light';
