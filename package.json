@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "chrome-webstore-upload-cli": "^1.1.1",
-    "dot-json": "^1.0.3",
-    "gh-pages": "^1.0.0",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "chrome-webstore-upload-cli": "^1.2.0",
+    "dot-json": "^1.1.0",
+    "gh-pages": "^1.2.0",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
     "react-scripts": "1.0.11"
   },
   "scripts": {
